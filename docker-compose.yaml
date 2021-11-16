@@ -1,0 +1,35 @@
+version: '3.7'
+
+services: 
+  rest-user:
+    container_name: backend-user
+    image: backend-user:latest
+    ports: 
+      - "8080:8080"
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:mysql://db:3306/backend
+    networks: 
+      - backend-user
+    depends_on:
+      - db
+
+  db:
+    container_name: db
+    image: mysql:latest
+    restart: unless-stopped
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: backend
+      MYSQL_USER: root
+      MYSQL_PASSWORD: root
+    ports:
+      - "3306:3306"
+    networks: 
+      - backend-user
+    volumes:
+      - db_data:/var/lib/mysql
+volumes:
+  db_data:
+  
+networks:
+  backend-user:
