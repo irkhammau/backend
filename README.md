@@ -2,6 +2,7 @@
 User Backend Example Project
 # Project Description
 This project is a web backend RESTfull that contains basic CRUD functions and there are two roles (admin and user). This Web application is built using the Java Spring Boot. framework.
+The reason I chose this framework is because it has complete features and has a large community, making it easier to develop it.
 # Feature
 - login using username and password, and strengthened by using JWT (JSON Web Token)
 - admin can add, view, modify and delete user data
